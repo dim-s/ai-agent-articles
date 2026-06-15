@@ -11,6 +11,9 @@ other = "About"
 [reading_time]
 other = "min read"
 
+[read_more]
+other = "Read"
+
 [published]
 other = "published"
 

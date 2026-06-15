@@ -11,6 +11,9 @@ other = "О проекте"
 [reading_time]
 other = "мин чтения"
 
+[read_more]
+other = "Читать"
+
 [published]
 other = "опубликовано"
 
