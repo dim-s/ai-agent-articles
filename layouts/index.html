@@ -18,6 +18,7 @@
     </div>
     {{ end }}
     <div class="bio-links">
+      {{ with .email }}<a href="mailto:{{ . }}" rel="author">{{ . }}</a>{{ end }}
       {{ with .github }}<a href="{{ . }}" rel="me noopener" target="_blank">GitHub</a>{{ end }}
       <a href="{{ "about/" | relLangURL }}">{{ i18n "about" }} →</a>
     </div>

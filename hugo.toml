@@ -20,6 +20,7 @@ enableRobotsTXT = true
   bio = "15 лет в IT, по складу инженер-исследователь. Сейчас плотно занят автономными ИИ-агентами: как их проектировать, настраивать и доводить до того, чтобы они надёжно работали сами — об этом и пишу здесь. Подхожу как к исследованию: гипотеза → прототип → проверка на живых задачах. Помимо инженерной части мне интересно, как модели держат характер и отыгрывают роль, и как с этим жить на локальных моделях — суверенно, у себя."
   bioTags = ["элегантная простота", "сборка из кубиков", "суверенитет", "спокойствие"]
   github = "https://github.com/dim-s"
+  email = "d.zayceff@gmail.com"
 
 [languages]
   [languages.ru]
@@ -39,6 +40,16 @@ enableRobotsTXT = true
     disabled = true   # перевода пока нет — язык заложен структурно, но скрыт
     [languages.en.params]
       tagline = "Notes on building autonomous AI agents for product development"
+
+# /llms.txt — машиночитаемая карта сайта для LLM (llmstxt.org), генерится из index.llms.txt
+[outputs]
+  home = ["HTML", "RSS", "LLMS"]
+
+[outputFormats]
+  [outputFormats.LLMS]
+    mediaType = "text/plain"
+    baseName = "llms"
+    isPlainText = true
 
 [markup]
   [markup.goldmark.renderer]

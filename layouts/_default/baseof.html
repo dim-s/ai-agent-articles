@@ -4,8 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
-  {{ with .Description | default .Summary | default .Site.Language.Params.tagline }}<meta name="description" content="{{ . }}">{{ end }}
-  <meta name="author" content="{{ .Site.Params.author }} ({{ .Site.Params.authorLatin }})">
+  {{ partial "head-seo.html" . }}
   {{ $css := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,5 +15,6 @@
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}
+  {{ partial "lightbox.html" . }}
 </body>
 </html>

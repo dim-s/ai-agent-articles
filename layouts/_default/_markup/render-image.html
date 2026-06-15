@@ -1,0 +1,13 @@
+{{- /* Картинки из markdown → кликабельная фигура (лайтбокс). Width/height из ресурса для меньшего CLS. */ -}}
+{{- $dest := .Destination -}}
+{{- $src := $dest | safeURL -}}
+{{- $w := 0 -}}{{- $h := 0 -}}
+{{- with .Page.Resources.GetMatch $dest -}}
+  {{- $src = .RelPermalink -}}{{- $w = .Width -}}{{- $h = .Height -}}
+{{- end -}}
+<figure class="post-figure">
+  <a class="lightbox-link" href="{{ $src }}"{{ with .Title }} title="{{ . }}"{{ end }} aria-label="Открыть изображение в полном размере">
+    <img src="{{ $src }}" alt="{{ .Text }}"{{ with $w }} width="{{ . }}"{{ end }}{{ with $h }} height="{{ . }}"{{ end }} loading="lazy" decoding="async">
+  </a>
+  {{- with .Title }}<figcaption>{{ . }}</figcaption>{{- end }}
+</figure>

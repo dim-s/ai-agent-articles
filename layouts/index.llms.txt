@@ -1,0 +1,14 @@
+# {{ .Site.Title }} — {{ .Site.Params.author }}
+
+> {{ .Site.Language.Params.tagline }}. Автор — {{ .Site.Params.author }} ({{ .Site.Params.authorLatin }}). Лицензия {{ .Site.Params.license }}: перепечатка и переработка (в т.ч. коммерческая) разрешены при обязательной ссылке на автора и на сайт {{ .Site.Params.authorUrl }}.
+
+## Статьи
+{{ range (where .Site.RegularPages "Section" "articles").ByDate.Reverse -}}
+- [{{ .Title }}]({{ .Permalink }}){{ with .Summary }}: {{ . | plainify | chomp }}{{ end }}
+{{ end }}
+## Об авторе
+{{ .Site.Params.bio | plainify }}
+Контакт: {{ .Site.Params.email }} · GitHub: {{ .Site.Params.github }}
+
+## Лицензия
+{{ .Site.Params.license }} ({{ .Site.Params.licenseUrl }}) — свободное использование при указании автора и ссылки на сайт.
