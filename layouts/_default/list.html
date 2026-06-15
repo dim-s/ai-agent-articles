@@ -1,0 +1,18 @@
+{{ define "main" }}
+<section class="list-head">
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}<div class="intro-body">{{ . }}</div>{{ end }}
+</section>
+
+<section class="article-list">
+  {{ range .Pages.ByDate.Reverse }}
+  <article class="card">
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <p class="meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time> · {{ .ReadingTime }}&nbsp;{{ i18n "reading_time" }}</p>
+    {{ with .Summary }}<p class="summary">{{ . }}</p>{{ end }}
+  </article>
+  {{ else }}
+  <p class="empty">Пока пусто.</p>
+  {{ end }}
+</section>
+{{ end }}

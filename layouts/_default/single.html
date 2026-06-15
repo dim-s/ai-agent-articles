@@ -1,0 +1,29 @@
+{{ define "main" }}
+<article class="post">
+  <header class="post-header">
+    <h1>{{ .Title }}</h1>
+    <p class="meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
+      · {{ .ReadingTime }}&nbsp;{{ i18n "reading_time" }}
+      · {{ i18n "author_label" }}: {{ .Site.Params.author }}
+    </p>
+  </header>
+
+  {{ if gt (len .TableOfContents) 60 }}
+  <nav class="toc">
+    <div class="toc-title">{{ i18n "toc_title" }}</div>
+    {{ .TableOfContents }}
+  </nav>
+  {{ end }}
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  <footer class="post-footer">
+    <p class="license">{{ i18n "license_notice" (dict "License" .Site.Params.license) }}
+      <a href="{{ .Site.Params.licenseUrl }}" rel="license">{{ .Site.Params.license }}</a></p>
+    <a class="back" href="{{ "articles/" | relLangURL }}">{{ i18n "back_to_articles" }}</a>
+  </footer>
+</article>
+{{ end }}

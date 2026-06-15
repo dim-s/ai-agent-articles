@@ -1,0 +1,27 @@
+# Строки интерфейса — русский
+[articles]
+other = "Статьи"
+
+[home]
+other = "Главная"
+
+[about]
+other = "О проекте"
+
+[reading_time]
+other = "мин чтения"
+
+[published]
+other = "опубликовано"
+
+[author_label]
+other = "Автор"
+
+[license_notice]
+other = "Материалы публикуются под лицензией {{ .License }}. Перепечатка и переработка разрешены при обязательной ссылке на автора и на этот сайт."
+
+[back_to_articles]
+other = "← ко всем статьям"
+
+[toc_title]
+other = "Содержание"

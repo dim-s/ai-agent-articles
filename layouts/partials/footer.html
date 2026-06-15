@@ -1,0 +1,7 @@
+<footer class="site-footer">
+  <div class="container">
+    <p class="foot-author">{{ i18n "author_label" }}: <strong>{{ .Site.Params.author }}</strong> ({{ .Site.Params.authorLatin }})</p>
+    <p class="foot-license">© {{ now.Year }}. {{ i18n "license_notice" (dict "License" .Site.Params.license) }}
+      <a href="{{ .Site.Params.licenseUrl }}" rel="license">{{ .Site.Params.license }}</a>.</p>
+  </div>
+</footer>

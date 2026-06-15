@@ -1,0 +1,27 @@
+# Interface strings — English (заготовка на будущее)
+[articles]
+other = "Articles"
+
+[home]
+other = "Home"
+
+[about]
+other = "About"
+
+[reading_time]
+other = "min read"
+
+[published]
+other = "published"
+
+[author_label]
+other = "Author"
+
+[license_notice]
+other = "Published under {{ .License }}. Reuse and adaptation are allowed with mandatory attribution to the author and a link back to this site."
+
+[back_to_articles]
+other = "← all articles"
+
+[toc_title]
+other = "Contents"

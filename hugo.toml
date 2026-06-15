@@ -1,0 +1,47 @@
+# Hugo config — AI Agent Articles
+# Минималистичный публичный сайт статей. Задел на двуязычность (ru сейчас, en скрыт до перевода).
+
+baseURL = "https://dim-s.github.io/ai-agent-articles/"
+defaultContentLanguage = "ru"
+enableEmoji = true
+enableRobotsTXT = true
+
+# Переезд на свой домен позже = сменить baseURL (одна строка) + пересборка. CI для GitHub
+# Pages подставляет актуальный base_url автоматически, так что URL-структура переносима.
+
+[params]
+  author = "Дмитрий Зайцев"
+  authorLatin = "Dmitrii Zaitsev"
+  authorUrl = "https://dim-s.github.io/ai-agent-articles/"
+  license = "CC BY 4.0"
+  licenseUrl = "https://creativecommons.org/licenses/by/4.0/"
+
+[languages]
+  [languages.ru]
+    label = "Русский"
+    locale = "ru"
+    contentDir = "content/ru"
+    weight = 1
+    title = "Статьи об ИИ-агентах"
+    [languages.ru.params]
+      tagline = "Заметки о том, как строить автономных ИИ-агентов под разработку продуктов"
+  [languages.en]
+    label = "English"
+    locale = "en"
+    contentDir = "content/en"
+    weight = 2
+    title = "AI Agent Articles"
+    disabled = true   # перевода пока нет — язык заложен структурно, но скрыт
+    [languages.en.params]
+      tagline = "Notes on building autonomous AI agents for product development"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true        # разрешить инлайн-HTML/SVG в статьях
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false
+
+[taxonomies]
+  tag = "tags"
