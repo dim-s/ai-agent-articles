@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" font-family="'IBM Plex Sans', system-ui, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#888780"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="540" fill="#ffffff"/>
+  <text x="450" y="32" text-anchor="middle" font-size="16" font-weight="600" fill="#2c2c2a">Порядок правил кернела: верх перебивает низ (порядок несущий, не косметический)</text>
+  <text x="450" y="52" text-anchor="middle" font-size="12" fill="#7a786f">опция нарушает hard constraint - отброшена ДО любого алгоритма; «креативный 4-й вариант» его не обходит</text>
+
+  <!-- левая ось приоритета -->
+  <line x1="58" y1="92" x2="58" y2="462" stroke="#b8b6ae" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="46" y="120" font-size="11.5" fill="#7a786f" transform="rotate(-90 46 277)" text-anchor="middle">раньше и сильнее  →  слабее и позже</text>
+
+  <!-- TIER 1 -->
+  <rect x="96" y="88" width="750" height="66" rx="10" fill="#f7e9e6" stroke="#d99a8b" stroke-width="1.4"/>
+  <rect x="112" y="101" width="42" height="40" rx="7" fill="#b5462e"/>
+  <text x="133" y="128" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">1</text>
+  <text x="172" y="116" font-size="15" font-weight="700" fill="#8a3320">HARD CONSTRAINTS - структурный отказ</text>
+  <text x="172" y="138" font-size="12.5" fill="#5a5a66">нарушил хоть один → опция отброшена ДО алгоритмов, без обхода</text>
+
+  <!-- TIER 2 -->
+  <rect x="96" y="166" width="750" height="66" rx="10" fill="#eeedfe" stroke="#afa9ec" stroke-width="1.4"/>
+  <rect x="112" y="179" width="42" height="40" rx="7" fill="#534ab7"/>
+  <text x="133" y="206" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">2</text>
+  <text x="172" y="194" font-size="15" font-weight="700" fill="#26215c">ЦЕННОСТИ - тай-брейкер</text>
+  <text x="172" y="216" font-size="12.5" fill="#5a5a66">выбирают между опциями, что прошли constraints</text>
+
+  <!-- TIER 3 -->
+  <rect x="96" y="244" width="750" height="66" rx="10" fill="#f2f1fb" stroke="#c9c5ec" stroke-width="1.4"/>
+  <rect x="112" y="257" width="42" height="40" rx="7" fill="#7f77dd"/>
+  <text x="133" y="284" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">3</text>
+  <text x="172" y="272" font-size="15" font-weight="700" fill="#26215c">DIRECT-MATCH RULES</text>
+  <text x="172" y="294" font-size="12.5" fill="#5a5a66">ситуация в известном классе → выбор берётся прямо, без прогона алгоритмов</text>
+
+  <!-- TIER 4 -->
+  <rect x="96" y="322" width="750" height="66" rx="10" fill="#f6f5fc" stroke="#d6d2ee" stroke-width="1.4"/>
+  <rect x="112" y="335" width="42" height="40" rx="7" fill="#9a93e6"/>
+  <text x="133" y="362" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">4</text>
+  <text x="172" y="350" font-size="15" font-weight="700" fill="#26215c">АЛГОРИТМЫ</text>
+  <text x="172" y="372" font-size="12.5" fill="#5a5a66">процедура ВНУТРИ уже отфильтрованных опций (трудозатраты × выхлоп × резонанс)</text>
+
+  <!-- TIER 5 -->
+  <rect x="96" y="400" width="750" height="66" rx="10" fill="#f6f5ef" stroke="#e5e3db" stroke-width="1.4"/>
+  <rect x="112" y="413" width="42" height="40" rx="7" fill="#b8b6ae"/>
+  <text x="133" y="440" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">5</text>
+  <text x="172" y="428" font-size="15" font-weight="700" fill="#5f5e5a">ПРИОРЫ · ПАТТЕРНЫ · ЯКОРНЫЕ КЕЙСЫ</text>
+  <text x="172" y="450" font-size="12.5" fill="#7a786f">контекстные хинты и литералы для разрешения конфликтов приоров</text>
+
+  <text x="450" y="500" text-anchor="middle" font-size="12.5" fill="#88888f">Формат выхода жёсткий: цитата правила ТОЙ секции, что реально отбраковала вариант - это не даёт движку сползать в многословие.</text>
+</svg>
