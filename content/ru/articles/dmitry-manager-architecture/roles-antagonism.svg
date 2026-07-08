@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="'IBM Plex Sans', system-ui, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#888780"/>
+    </marker>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#b5462e"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="560" fill="#ffffff"/>
+  <text x="450" y="32" text-anchor="middle" font-size="16" font-weight="600" fill="#2c2c2a">Роли-режимы: конвергенция сводит, дивергенция расходится - и они антагонисты</text>
+  <text x="450" y="52" text-anchor="middle" font-size="12.5" fill="#7a786f">критик-гейт по природе душит генератора; поэтому генерацию и оценку разводят по разным ролям</text>
+
+  <!-- ПЕРЕКЛЮЧАТЕЛЬ -->
+  <rect x="335" y="70" width="230" height="56" rx="10" fill="#f1efe8" stroke="#b4b2a9" stroke-width="1.3"/>
+  <text x="450" y="94" text-anchor="middle" font-size="14.5" font-weight="700" fill="#2c2c2a">Переключатель</text>
+  <text x="450" y="113" text-anchor="middle" font-size="12" fill="#5f5e5a">кому сейчас руль (был пробел)</text>
+
+  <!-- руль влево/вправо -->
+  <path d="M375,120 Q250,140 235,192" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#a)"/>
+  <path d="M525,120 Q660,150 668,246" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="286" y="150" text-anchor="middle" font-size="11.5" fill="#7a786f">даёт руль</text>
+  <text x="618" y="158" text-anchor="middle" font-size="11.5" fill="#7a786f">даёт руль</text>
+
+  <!-- разделитель половин -->
+  <line x1="450" y1="150" x2="450" y2="452" stroke="#dad8d0" stroke-width="1.2" stroke-dasharray="3 4"/>
+  <text x="442" y="168" text-anchor="end" font-size="12" fill="#7a786f">← конвергенция: свести</text>
+  <text x="458" y="168" font-size="12" fill="#a6701f">дивергенция: расходиться →</text>
+
+  <!-- СБОРЩИК -->
+  <rect x="66" y="196" width="300" height="74" rx="10" fill="#f1efe8" stroke="#b4b2a9" stroke-width="1.3"/>
+  <text x="86" y="226" font-size="15" font-weight="700" fill="#2c2c2a">Сборщик · исполнитель</text>
+  <text x="86" y="249" font-size="12.5" fill="#5f5e5a">собирает, держит поток работы</text>
+
+  <!-- КРИТИК -->
+  <rect x="66" y="300" width="300" height="74" rx="10" fill="#eeedfe" stroke="#afa9ec" stroke-width="1.3"/>
+  <text x="86" y="330" font-size="15" font-weight="700" fill="#26215c">Критик · менеджер</text>
+  <text x="86" y="353" font-size="12.5" fill="#534ab7">сводит к ЧИСТО, проверяет, не плодит</text>
+
+  <!-- ГЕНЕРАТОР -->
+  <rect x="534" y="250" width="300" height="96" rx="10" fill="#fbf1dc" stroke="#e0b86a" stroke-width="1.3"/>
+  <text x="684" y="282" text-anchor="middle" font-size="15" font-weight="700" fill="#7a4a12">Генератор · мечтатель</text>
+  <text x="684" y="305" text-anchor="middle" font-size="12.5" fill="#a6701f">накидывает дикое поле,</text>
+  <text x="684" y="323" text-anchor="middle" font-size="12.5" fill="#a6701f">не терпит критики над собой</text>
+
+  <!-- АНТАГОНИЗМ: критик душит генератора -->
+  <path d="M366,326 Q450,300 532,300" fill="none" stroke="#b5462e" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#ar)"/>
+  <text x="450" y="290" text-anchor="middle" font-size="12.5" font-weight="600" fill="#b5462e">душит (структурный антагонист)</text>
+
+  <!-- РЕШЕНИЕ -->
+  <rect x="66" y="404" width="768" height="66" rx="10" fill="#f6f5ef" stroke="#e5e3db" stroke-width="1"/>
+  <text x="86" y="430" font-size="13.5" font-weight="600" fill="#04342c">Лечение: разводят по разным ролям (метод Диснея - разные комнаты).</text>
+  <text x="86" y="452" font-size="12.5" fill="#5a5a66">Дух генератора финалит владелец + нейтральный слепой судья, НЕ критик. Иначе критик глушит идеи на взлёте.</text>
+
+  <text x="450" y="500" text-anchor="middle" font-size="12.5" fill="#88888f">Менеджеру остаётся его зона: проверить механику и полноту - не судить, «каким должен быть генератор».</text>
+</svg>
