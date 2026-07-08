@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" font-family="'IBM Plex Sans', system-ui, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#534ab7"/>
+    </marker>
+    <marker id="arrg" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#88888f"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="640" fill="#ffffff"/>
+
+  <!-- ВИДЕНИЕ-ЯКОРЬ (вход) -->
+  <rect x="250" y="28" width="400" height="56" rx="10" fill="#f2f1fb" stroke="#c9c5ec" stroke-width="1.5"/>
+  <text x="450" y="52" text-anchor="middle" font-size="15" font-weight="600" fill="#2b2b33">Видение-якорь (PRODUCT.md)</text>
+  <text x="450" y="72" text-anchor="middle" font-size="12.5" fill="#5a5a66">каким продукт должен стать, для кого - это ВХОД, не выход</text>
+
+  <line x1="450" y1="84" x2="450" y2="122" stroke="#534ab7" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="466" y="108" font-size="12.5" font-style="italic" fill="#534ab7">нет якоря → продюсер требует, не выдумывает</text>
+
+  <!-- ПРОДЮСЕР -->
+  <rect x="250" y="124" width="400" height="66" rx="10" fill="#534ab7"/>
+  <text x="450" y="152" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" font-family="monospace">dmitry-producer</text>
+  <text x="450" y="174" text-anchor="middle" font-size="12.5" fill="#e8e6f8">выбирает следующий большой ход к видению</text>
+
+  <line x1="450" y1="190" x2="450" y2="226" stroke="#534ab7" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="466" y="212" font-size="12.5" font-style="italic" fill="#534ab7">раскладывает ход задачами на доске</text>
+
+  <!-- ДОСКА -->
+  <rect x="250" y="228" width="400" height="60" rx="10" fill="#f0f0f2" stroke="#cdcdd4" stroke-width="1.5"/>
+  <text x="450" y="253" text-anchor="middle" font-size="15" font-weight="600" fill="#2b2b33">Доска продукта · ход разложен задачами</text>
+  <text x="450" y="273" text-anchor="middle" font-size="12.5" fill="#5a5a66">цикл · направление · задача - плоский текст под git</text>
+
+  <line x1="450" y1="288" x2="450" y2="324" stroke="#534ab7" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="466" y="310" font-size="12.5" font-style="italic" fill="#534ab7">исполнитель делает каждую задачу</text>
+
+  <!-- МЕНЕДЖЕР ГЕЙТИТ ЗАДАЧИ -->
+  <rect x="250" y="326" width="400" height="60" rx="10" fill="#eeedfe" stroke="#afa9ec" stroke-width="1.5"/>
+  <text x="450" y="351" text-anchor="middle" font-size="15" font-weight="600" fill="#26215c">Менеджер гейтит каждую задачу до ЧИСТО</text>
+  <text x="450" y="371" text-anchor="middle" font-size="12.5" fill="#534ab7">гейт ЗАДАЧ - внутри хода</text>
+
+  <line x1="450" y1="386" x2="450" y2="422" stroke="#534ab7" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="466" y="408" font-size="12.5" font-style="italic" fill="#534ab7">все задачи закрыты → ход ждёт приёмки</text>
+
+  <!-- ПРИЁМКА ХОДА -->
+  <rect x="250" y="424" width="400" height="66" rx="10" fill="#fbf7ec" stroke="#e0c987" stroke-width="1.7"/>
+  <text x="450" y="452" text-anchor="middle" font-size="16" font-weight="700" fill="#8a6d1f">Приёмка хода · продюсер</text>
+  <text x="450" y="474" text-anchor="middle" font-size="12.5" fill="#5a5a66">сел ли ход против свежего живого билда + видения</text>
+
+  <!-- исходы приёмки -->
+  <circle cx="270" cy="516" r="5" fill="#639922"/>
+  <text x="284" y="520" font-size="13" fill="#3f6015">СЕЛ → следующий ход, или финиш продукта</text>
+  <circle cx="270" cy="540" r="5" fill="#b5462e"/>
+  <text x="284" y="544" font-size="13" fill="#8a3320">НЕ СЕЛ → корректирующий слой тем же ходом</text>
+  <circle cx="270" cy="564" r="5" fill="#88888f"/>
+  <text x="284" y="568" font-size="13" fill="#6c6c74">нет живого билда → не судит, требует показать</text>
+
+  <!-- ПЕТЛЯ ВОЗВРАТА: приёмка → продюсер -->
+  <path d="M650,448 Q724,448 724,300 Q724,157 656,157" fill="none" stroke="#534ab7" stroke-width="2" stroke-dasharray="0" marker-end="url(#arr)"/>
+  <text x="735" y="300" font-size="12.5" font-weight="600" fill="#534ab7" transform="rotate(90 735 300)" text-anchor="middle">следующий большой ход</text>
+
+  <!-- ЛЕВАЯ ПОДПИСЬ: доска-память -->
+  <line x1="250" y1="258" x2="150" y2="258" stroke="#c9c5ec" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="142" y="246" text-anchor="end" font-size="12" font-weight="600" fill="#534ab7">память вне головы</text>
+  <text x="142" y="262" text-anchor="end" font-size="12" fill="#5a5a66">продюсер свежий -</text>
+  <text x="142" y="278" text-anchor="end" font-size="12" fill="#5a5a66">доска помнит за него</text>
+
+  <!-- ЛЕВАЯ ПОДПИСЬ: два этажа готовности -->
+  <line x1="250" y1="356" x2="150" y2="356" stroke="#c9c5ec" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="142" y="344" text-anchor="end" font-size="12" font-weight="600" fill="#534ab7">два этажа «готово»:</text>
+  <text x="142" y="360" text-anchor="end" font-size="12" fill="#5a5a66">менеджер - задача,</text>
+  <text x="142" y="376" text-anchor="end" font-size="12" fill="#5a5a66">продюсер - весь ход</text>
+
+  <!-- вкусовые развилки → владельцу -->
+  <line x1="250" y1="150" x2="150" y2="150" stroke="#c9c5ec" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="142" y="146" text-anchor="end" font-size="12" fill="#5a5a66">вкусовые развилки</text>
+  <text x="142" y="162" text-anchor="end" font-size="12" fill="#5a5a66">→ владельцу пачкой</text>
+
+  <!-- подпись внизу -->
+  <text x="450" y="612" text-anchor="middle" font-size="13" fill="#88888f">Продюсер задаёт большой ход и сам его принимает; менеджер гейтит задачи внутри. Этаж НАД задачей.</text>
+</svg>
