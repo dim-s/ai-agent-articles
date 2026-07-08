@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="'IBM Plex Sans', system-ui, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#888780"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="560" fill="#ffffff"/>
+  <text x="450" y="32" text-anchor="middle" font-size="16" font-weight="600" fill="#2c2c2a">Четыре класса сценариев - под четыре класса провала</text>
+  <text x="450" y="52" text-anchor="middle" font-size="12.5" fill="#7a786f">по одному тесту на каждый способ сломаться; покрытие СПОСОБОВ ценнее числа тестов</text>
+
+  <text x="230" y="82" text-anchor="middle" font-size="12" font-weight="600" fill="#534ab7">КЛАСС СЦЕНАРИЯ</text>
+  <text x="670" y="82" text-anchor="middle" font-size="12" font-weight="600" fill="#534ab7">КЛАСС ПРОВАЛА, КОТОРЫЙ ОН ЛОВИТ</text>
+
+  <!-- ROW 1: happy-path -->
+  <rect x="55" y="94" width="350" height="72" rx="10" fill="#e1f5ee" stroke="#5dcaa5" stroke-width="1.4"/>
+  <text x="75" y="126" font-size="15" font-weight="700" fill="#04342c" font-family="monospace">happy-path</text>
+  <text x="75" y="148" font-size="12.5" fill="#0f6e56">типовой вызов - должен отработать чисто</text>
+  <line x1="405" y1="130" x2="493" y2="130" stroke="#888780" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="122" text-anchor="middle" font-size="11" fill="#7a786f">ловит</text>
+  <rect x="495" y="94" width="350" height="72" rx="10" fill="#f0f0f2" stroke="#cdcdd4" stroke-width="1.4"/>
+  <text x="515" y="126" font-size="14.5" font-weight="600" fill="#2b2b33">Спотыкание на базовом</text>
+  <text x="515" y="148" font-size="12.5" fill="#5a5a66">если и тут падает - дальше можно не идти</text>
+
+  <!-- ROW 2: edge-case -->
+  <rect x="55" y="186" width="350" height="72" rx="10" fill="#fbf7ec" stroke="#e0c987" stroke-width="1.4"/>
+  <text x="75" y="218" font-size="15" font-weight="700" fill="#8a6d1f" font-family="monospace">edge-case</text>
+  <text x="75" y="240" font-size="12.5" fill="#5a5a66">неполный / кривой вход</text>
+  <line x1="405" y1="222" x2="493" y2="222" stroke="#888780" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="214" text-anchor="middle" font-size="11" fill="#7a786f">ловит</text>
+  <rect x="495" y="186" width="350" height="72" rx="10" fill="#f0f0f2" stroke="#cdcdd4" stroke-width="1.4"/>
+  <text x="515" y="218" font-size="14.5" font-weight="600" fill="#2b2b33">Домысливание</text>
+  <text x="515" y="240" font-size="12.5" fill="#5a5a66">угадывает вместо «уточни, чего не хватает»</text>
+
+  <!-- ROW 3: adversarial -->
+  <rect x="55" y="278" width="350" height="72" rx="10" fill="#f7e9e6" stroke="#d99a8b" stroke-width="1.4"/>
+  <text x="75" y="310" font-size="15" font-weight="700" fill="#8a3320" font-family="monospace">adversarial</text>
+  <text x="75" y="332" font-size="12.5" fill="#8a3320">провокация выйти за роль / сделать чужое</text>
+  <line x1="405" y1="314" x2="493" y2="314" stroke="#888780" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="306" text-anchor="middle" font-size="11" fill="#7a786f">ловит</text>
+  <rect x="495" y="278" width="350" height="72" rx="10" fill="#f0f0f2" stroke="#cdcdd4" stroke-width="1.4"/>
+  <text x="515" y="310" font-size="14.5" font-weight="600" fill="#2b2b33">Слёт с роли под нажимом</text>
+  <text x="515" y="332" font-size="12.5" fill="#5a5a66">«просто сделай» · «не придирайся» · «глянь X»</text>
+
+  <!-- ROW 4: trigger-test -->
+  <rect x="55" y="370" width="350" height="72" rx="10" fill="#eeedfe" stroke="#afa9ec" stroke-width="1.4"/>
+  <text x="75" y="402" font-size="15" font-weight="700" fill="#26215c" font-family="monospace">trigger-test</text>
+  <text x="75" y="424" font-size="12.5" fill="#534ab7">формулировки - где ДОЛЖЕН и где НЕ должен</text>
+  <line x1="405" y1="406" x2="493" y2="406" stroke="#888780" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="449" y="398" text-anchor="middle" font-size="11" fill="#7a786f">ловит</text>
+  <rect x="495" y="370" width="350" height="72" rx="10" fill="#f0f0f2" stroke="#cdcdd4" stroke-width="1.4"/>
+  <text x="515" y="402" font-size="14.5" font-weight="600" fill="#2b2b33">Промах триггера</text>
+  <text x="515" y="424" font-size="12.5" fill="#5a5a66">лишнее срабатывание или пропущенное</text>
+
+  <text x="450" y="486" text-anchor="middle" font-size="13" fill="#5a5a66">Каждый провал - конкретная дырка на конкретном классе входа. Чтобы закрыть - сперва воспроизвести.</text>
+  <text x="450" y="510" text-anchor="middle" font-size="12.5" fill="#88888f">Минимум - по сценарию на класс; обычно набор из шести-восьми.</text>
+</svg>
