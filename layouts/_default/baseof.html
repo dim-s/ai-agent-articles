@@ -3,18 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
+  {{ $pageTitle := cond (eq .Kind "taxonomy") (i18n "tags_title") .Title }}
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ $pageTitle }} · {{ .Site.Title }}{{ end }}</title>
   {{ partial "head-seo.html" . }}
   {{ $css := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  {{ range slice "golos-cyrillic-var" "piazzolla-cyrillic-var" }}
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ (printf "fonts/%s.woff2" .) | relURL }}">
+  {{ end }}
+  <meta name="theme-color" content="#f6f1e7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1a1712" media="(prefers-color-scheme: dark)">
+  <script>
+    /* Тема ставится до первой отрисовки — иначе на тёмной системе мигнёт светлым.
+       Класс js включает поведение, которое без скрипта было бы ловушкой (свёрнутое содержание). */
+    (function (r) {
+      r.classList.add('js');
+      try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') r.dataset.theme = t; } catch (e) {}
+    })(document.documentElement);
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">{{ i18n "skip_to_content" }}</a>
+  <div class="read-progress" id="read-progress" aria-hidden="true"></div>
   {{ partial "header.html" . }}
-  <main class="container">
+  <main class="container" id="main" tabindex="-1" data-scroll-label="{{ i18n "scroll_region" }}">
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}
   {{ partial "lightbox.html" . }}
+  {{ partial "site-js.html" . }}
 </body>
 </html>

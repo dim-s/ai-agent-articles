@@ -1,30 +1,24 @@
-{{- /* Лёгкий лайтбокс без зависимостей. Прогрессивное улучшение: без JS ссылка просто открывает картинку. */ -}}
-<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Просмотр изображения">
+{{- /* Лайтбокс на нативном <dialog>: фокус-трап, Escape и возврат фокуса — от платформы.
+       Без JS ссылка просто открывает картинку отдельной страницей (прогрессивное улучшение). */ -}}
+<dialog class="lightbox" id="lightbox" aria-label="{{ i18n "image_view" }}">
+  <button type="button" class="lightbox__close" autofocus data-lightbox-close aria-label="{{ i18n "changelog_close" }}">&times;</button>
   <img alt="" id="lightbox-img">
-</div>
+</dialog>
 <script>
 (function () {
   var lb = document.getElementById('lightbox'), img = document.getElementById('lightbox-img');
-  if (!lb || !img) return;
-  function open(src, alt) {
-    img.src = src; img.alt = alt || '';
-    lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-  function close() {
-    lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true');
-    img.removeAttribute('src'); document.body.style.overflow = '';
-  }
+  if (!lb || !img || typeof lb.showModal !== 'function') return;
   document.addEventListener('click', function (e) {
     var a = e.target.closest('.lightbox-link');
     if (a) {
       e.preventDefault();
       var inner = a.querySelector('img');
-      open(a.getAttribute('href'), inner ? inner.getAttribute('alt') : '');
+      img.src = a.getAttribute('href'); img.alt = inner ? inner.getAttribute('alt') : '';
+      lb.showModal();
       return;
     }
-    if (e.target === lb || e.target === img) close();
+    if (e.target.closest('[data-lightbox-close]') || e.target === lb) lb.close();
   });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  lb.addEventListener('close', function () { img.removeAttribute('src'); });
 })();
 </script>

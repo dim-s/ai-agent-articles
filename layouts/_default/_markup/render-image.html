@@ -6,7 +6,7 @@
   {{- $src = .RelPermalink -}}{{- $w = .Width -}}{{- $h = .Height -}}
 {{- end -}}
 <figure class="post-figure">
-  <a class="lightbox-link" href="{{ $src }}"{{ with .Title }} title="{{ . }}"{{ end }} aria-label="Открыть изображение в полном размере">
+  <a class="lightbox-link" href="{{ $src }}"{{ with .Title }} title="{{ . }}"{{ end }} aria-label="{{ i18n "image_open_full" }}">
     <img src="{{ $src }}" alt="{{ .Text }}"{{ with $w }} width="{{ . }}"{{ end }}{{ with $h }} height="{{ . }}"{{ end }} loading="lazy" decoding="async">
   </a>
   {{- with .Title }}<figcaption>{{ . }}</figcaption>{{- end }}

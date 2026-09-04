@@ -1,0 +1,100 @@
+<script>
+(function () {
+  /* — Переключатель темы: система → светлая → тёмная → система.
+       Третье состояние обязательно: без него читатель, кликнув однажды, уже никогда не
+       вернётся к «как в системе», а на длинном чтении тема меняется вместе с временем суток. — */
+  var root = document.documentElement, btn = document.getElementById('theme-toggle');
+  if (btn) {
+    var labels = JSON.parse(btn.dataset.labels || '{}');
+    var apply = function (mode) {
+      if (mode === 'system') { delete root.dataset.theme; try { localStorage.removeItem('theme'); } catch (e) {} }
+      else { root.dataset.theme = mode; try { localStorage.setItem('theme', mode); } catch (e) {} }
+      btn.setAttribute('aria-label', labels[mode] || labels.system || '');
+      btn.setAttribute('title', btn.getAttribute('aria-label'));
+      btn.setAttribute('aria-pressed', mode === 'dark' ? 'true' : 'false');
+      root.dataset.themeMode = mode;
+    };
+    var current = (function () { try { return localStorage.getItem('theme') || 'system'; } catch (e) { return 'system'; } })();
+    apply(current);
+    btn.addEventListener('click', function () {
+      var order = ['system', 'light', 'dark'];
+      apply(order[(order.indexOf(root.dataset.themeMode || 'system') + 1) % 3]);
+    });
+  }
+
+  /* — прогресс чтения: только на странице статьи — */
+  var bar = document.getElementById('read-progress');
+  var post = document.querySelector('.post-content');
+  if (bar && post) {
+    var tick = function () {
+      var r = post.getBoundingClientRect(), h = window.innerHeight;
+      var total = r.height - h;
+      var done = total > 0 ? Math.min(Math.max(-r.top / total, 0), 1) : (r.top < 0 ? 1 : 0);
+      bar.style.width = (done * 100).toFixed(2) + '%';
+    };
+    tick();
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick, { passive: true });
+  }
+
+  /* — содержание: на широком экране раскрыто, на узком свёрнуто; ручной выбор читателя
+       имеет приоритет и больше не перебивается изменением ширины — */
+  var tocEl = document.getElementById('toc');
+  if (tocEl) {
+    var mq = window.matchMedia('(min-width: 1120px)'), touched = false;
+    var sync = function () { if (!touched) tocEl.open = mq.matches; };
+    tocEl.addEventListener('toggle', function () { if (!mq.matches) touched = true; });
+    sync();
+    mq.addEventListener('change', sync);
+  }
+
+  /* — Прокручиваемая область обязана быть достижима с клавиатуры (SC 2.1.1) — но только та,
+       что РЕАЛЬНО прокручивается: иначе табостопка с объявлением «регион» появляется у каждой
+       таблицы, включая те, что целиком помещаются. Класс is-scrollable заодно включает
+       правую маску-намёк — она тоже не нужна там, где ничего не спрятано. — */
+  var markScrollable = function () {
+    document.querySelectorAll('.post-content pre, .post-content .table-wrap').forEach(function (el) {
+      var overflows = el.scrollWidth > el.clientWidth + 1;
+      el.classList.toggle('is-scrollable', overflows);
+      if (overflows) {
+        el.tabIndex = 0; el.setAttribute('role', 'region');
+        var main = document.getElementById('main');
+        el.setAttribute('aria-label', el.dataset.scrollLabel || (main && main.dataset.scrollLabel) || '');
+      } else {
+        el.removeAttribute('tabindex'); el.removeAttribute('role'); el.removeAttribute('aria-label');
+      }
+    });
+  };
+  markScrollable();
+  window.addEventListener('resize', markScrollable, { passive: true });
+
+  /* — подсветка текущего раздела в липком содержании.
+       Активен ПОСЛЕДНИЙ пройденный заголовок, а не «видимый сейчас»: между двумя h2 лежат
+       экраны текста, и полоса-детектор там пуста — подсветка гасла на всём длинном абзаце. — */
+  var tocNav = document.querySelector('.post-layout > .toc');
+  if (tocNav) {
+    var items = [];
+    tocNav.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      var el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+      if (el) items.push({ a: a, el: el });
+    });
+    if (items.length) {
+      var current = null;
+      var mark = function () {
+        var line = 96, found = items[0];
+        for (var i = 0; i < items.length; i++) {
+          if (items[i].el.getBoundingClientRect().top <= line) found = items[i]; else break;
+        }
+        if (found !== current) {
+          if (current) current.a.classList.remove('is-active');
+          found.a.classList.add('is-active');
+          current = found;
+        }
+      };
+      mark();
+      window.addEventListener('scroll', mark, { passive: true });
+      window.addEventListener('resize', mark, { passive: true });
+    }
+  }
+})();
+</script>

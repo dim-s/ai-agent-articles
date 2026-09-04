@@ -1,42 +1,41 @@
 {{ define "main" }}
 <section class="hero">
-  <h1>{{ .Site.Title }}</h1>
-  <p class="tagline">{{ .Site.Language.Params.tagline }}</p>
-  {{ with .Content }}<div class="intro-body">{{ . }}</div>{{ end }}
+  <p class="eyebrow">{{ i18n "site_kicker" }}</p>
+  <h1>{{ i18n "home_h1_before" }}<span class="accent">{{ i18n "home_h1_accent" }}</span></h1>
+  <div class="hero-lede">
+    <p class="tagline">{{ .Site.Language.Params.tagline }}</p>
+    {{ with .Content }}<div class="intro-body">{{ . }}</div>{{ end }}
+  </div>
+</section>
+
+{{ $posts := (where .Site.RegularPages "Section" "articles").ByDate.Reverse }}
+<div class="section-head">
+  <p class="eyebrow">{{ i18n "articles" }} <span class="count">{{ len $posts }}</span></p>
+</div>
+<section class="article-list">
+  {{ range $posts }}
+    {{ partial "article-entry.html" . }}
+  {{ else }}
+    {{ partial "empty.html" . }}
+  {{ end }}
 </section>
 
 {{ with .Site.Params }}
-<section class="bio-card" aria-label="Об авторе">
-  <div class="bio-mono" aria-hidden="true">ДЗ</div>
-  <div class="bio-body">
-    <p class="bio-name">{{ .author }} <span>· {{ .authorLatin }}</span></p>
-    {{ with .authorRole }}<p class="bio-role">{{ . }}</p>{{ end }}
+<section class="bio-card" aria-label="{{ i18n "about_author" }}">
+  <p class="bio-name">{{ .author }} <span class="eyebrow">{{ .authorLatin }}</span></p>
+  {{ with .authorRole }}<p class="bio-role eyebrow">{{ . }}</p>{{ end }}
+  <details class="bio-more">
+    <summary>{{ i18n "bio_more" }}</summary>
     {{ with .bio }}<p class="bio-text">{{ . }}</p>{{ end }}
     {{ with .bioTags }}
-    <div class="bio-tags">
-      {{ range . }}<span class="bio-tag">{{ . }}</span>{{ end }}
-    </div>
+    <p class="bio-tags">{{ range $i, $t := . }}{{ if $i }}<span class="dot" aria-hidden="true">·</span>{{ end }}{{ $t }}{{ end }}</p>
     {{ end }}
-    <div class="bio-links">
-      {{ with .email }}<a href="mailto:{{ . }}" rel="author">{{ . }}</a>{{ end }}
-      {{ with .github }}<a href="{{ . }}" rel="me noopener" target="_blank">GitHub</a>{{ end }}
-      <a href="{{ "about/" | relLangURL }}">{{ i18n "about" }} →</a>
-    </div>
-  </div>
+  </details>
+  <p class="bio-links">
+    {{ with .email }}<a href="mailto:{{ . }}" rel="author">{{ . }}</a>{{ end }}
+    {{ with .github }}<a href="{{ . }}" rel="me noopener" target="_blank">GitHub</a>{{ end }}
+    <a href="{{ "about/" | relLangURL }}">{{ i18n "about" }} →</a>
+  </p>
 </section>
 {{ end }}
-
-<p class="section-label">{{ i18n "articles" }}</p>
-<section class="article-list">
-  {{ range (where .Site.RegularPages "Section" "articles").ByDate.Reverse }}
-  <a class="card-link" href="{{ .RelPermalink }}">
-    <h2>{{ .Title }}</h2>
-    <p class="meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time> · {{ .ReadingTime }}&nbsp;{{ i18n "reading_time" }}</p>
-    {{ with .Summary }}<p class="summary">{{ . }}</p>{{ end }}
-    <span class="read-more">{{ i18n "read_more" }} →</span>
-  </a>
-  {{ else }}
-  <p class="empty">Пока пусто — первые статьи скоро.</p>
-  {{ end }}
-</section>
 {{ end }}

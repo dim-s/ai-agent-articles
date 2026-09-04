@@ -1,5 +1,5 @@
 {{- /* Широкие таблицы прокручиваются внутри себя, а не растягивают страницу на телефоне. */ -}}
-<div class="table-wrap">
+<div class="table-wrap" data-scroll-label="{{ i18n "table_region" }}">
 <table>
   <thead>
     {{- range .THead }}

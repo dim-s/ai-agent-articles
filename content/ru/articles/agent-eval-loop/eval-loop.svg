@@ -1,57 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" font-family="'IBM Plex Sans', system-ui, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" font-family="'Golos Text', 'Golos Text', 'IBM Plex Sans', system-ui, sans-serif">
   <defs>
     <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L8,3 L0,6 Z" fill="#534ab7"/>
+      <path d="M0,0 L8,3 L0,6 Z" fill="#a63f24"/>
     </marker>
     <marker id="ag" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L8,3 L0,6 Z" fill="#639922"/>
     </marker>
   </defs>
 
-  <rect width="900" height="580" fill="#ffffff"/>
+  <rect width="900" height="580" fill="#fffcf6"/>
   <text x="450" y="34" text-anchor="middle" font-size="16" font-weight="600" fill="#2c2c2a">Петля evals: кандидат отрабатывает, ДРУГОЙ агент судит, провал правит промпт</text>
 
   <!-- КАНДИДАТ -->
-  <rect x="70" y="78" width="270" height="82" rx="10" fill="#f2f1fb" stroke="#c9c5ec" stroke-width="1.5"/>
-  <text x="205" y="112" text-anchor="middle" font-size="16" font-weight="700" fill="#2b2b33">Кандидат-агент</text>
-  <text x="205" y="134" text-anchor="middle" font-size="12.5" fill="#5a5a66">промпт = всё поведение,</text>
-  <text x="205" y="150" text-anchor="middle" font-size="12.5" fill="#5a5a66">сэмплирует ответ (вероятностен)</text>
+  <rect x="70" y="78" width="270" height="82" rx="10" fill="#fdf6f0" stroke="#ecc8b4" stroke-width="1.5"/>
+  <text x="205" y="112" text-anchor="middle" font-size="16" font-weight="700" fill="#221e1a">Кандидат-агент</text>
+  <text x="205" y="134" text-anchor="middle" font-size="12.5" fill="#5d554a">промпт = всё поведение,</text>
+  <text x="205" y="150" text-anchor="middle" font-size="12.5" fill="#5d554a">сэмплирует ответ (вероятностен)</text>
 
   <!-- СУДЬЯ -->
-  <rect x="560" y="78" width="270" height="82" rx="10" fill="#534ab7"/>
-  <text x="695" y="112" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">Судья - ДРУГОЙ агент</text>
-  <text x="695" y="134" text-anchor="middle" font-size="12.5" fill="#e8e6f8">чистое окно, не заинтересован</text>
-  <text x="695" y="150" text-anchor="middle" font-size="12.5" fill="#e8e6f8">(само-проверка льстит себе)</text>
+  <rect x="560" y="78" width="270" height="82" rx="10" fill="#a63f24"/>
+  <text x="695" y="112" text-anchor="middle" font-size="16" font-weight="700" fill="#fffcf6">Судья - ДРУГОЙ агент</text>
+  <text x="695" y="134" text-anchor="middle" font-size="12.5" fill="#f7e7dc">чистое окно, не заинтересован</text>
+  <text x="695" y="150" text-anchor="middle" font-size="12.5" fill="#f7e7dc">(само-проверка льстит себе)</text>
 
   <!-- обмен вход/выход -->
-  <line x1="560" y1="104" x2="342" y2="104" stroke="#534ab7" stroke-width="2" marker-end="url(#a)"/>
-  <text x="451" y="97" text-anchor="middle" font-size="12" fill="#534ab7">1. вход сценария - как в бою</text>
-  <line x1="342" y1="134" x2="558" y2="134" stroke="#534ab7" stroke-width="2" marker-end="url(#a)"/>
-  <text x="451" y="151" text-anchor="middle" font-size="12" fill="#534ab7">2. выход кандидата</text>
+  <line x1="560" y1="104" x2="342" y2="104" stroke="#a63f24" stroke-width="2" marker-end="url(#a)"/>
+  <text x="451" y="97" text-anchor="middle" font-size="12" fill="#a63f24">1. вход сценария - как в бою</text>
+  <line x1="342" y1="134" x2="558" y2="134" stroke="#a63f24" stroke-width="2" marker-end="url(#a)"/>
+  <text x="451" y="151" text-anchor="middle" font-size="12" fill="#a63f24">2. выход кандидата</text>
 
   <!-- судья -> вердикт -->
-  <path d="M695,160 L695,214 Q695,232 677,232 L573,232" fill="none" stroke="#534ab7" stroke-width="2" marker-end="url(#a)"/>
-  <text x="686" y="196" text-anchor="end" font-size="12" fill="#534ab7">3. мерит по рубрике</text>
+  <path d="M695,160 L695,214 Q695,232 677,232 L573,232" fill="none" stroke="#a63f24" stroke-width="2" marker-end="url(#a)"/>
+  <text x="686" y="196" text-anchor="end" font-size="12" fill="#a63f24">3. мерит по рубрике</text>
 
   <!-- ВЕРДИКТ -->
   <rect x="350" y="206" width="220" height="80" rx="10" fill="#fbf7ec" stroke="#e0c987" stroke-width="1.7"/>
   <text x="460" y="238" text-anchor="middle" font-size="15" font-weight="700" fill="#8a6d1f">Вердикт по рубрике</text>
-  <text x="460" y="260" text-anchor="middle" font-size="13" fill="#5a5a66">PASS · PARTIAL · FAIL</text>
+  <text x="460" y="260" text-anchor="middle" font-size="13" fill="#5d554a">PASS · PARTIAL · FAIL</text>
   <text x="460" y="277" text-anchor="middle" font-size="11.5" fill="#7a786f">сверка с ожиданием + анти-ожиданием</text>
 
   <!-- вердикт -> правка (FAIL/PARTIAL) -->
-  <path d="M350,258 Q220,258 205,332" fill="none" stroke="#534ab7" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M350,258 Q220,258 205,332" fill="none" stroke="#a63f24" stroke-width="2" marker-end="url(#a)"/>
   <text x="250" y="304" text-anchor="middle" font-size="12.5" font-weight="600" fill="#b5462e">FAIL / PARTIAL</text>
 
   <!-- ПРАВКА ПРОМПТА -->
-  <rect x="70" y="334" width="270" height="80" rx="10" fill="#eeedfe" stroke="#afa9ec" stroke-width="1.5"/>
-  <text x="205" y="366" text-anchor="middle" font-size="15" font-weight="600" fill="#26215c">Правка промпта (с моделью)</text>
-  <text x="205" y="388" text-anchor="middle" font-size="12.5" fill="#534ab7">гипотеза правки - кандидат,</text>
-  <text x="205" y="404" text-anchor="middle" font-size="12.5" fill="#534ab7">перепрогон её отбракует или оставит</text>
+  <rect x="70" y="334" width="270" height="80" rx="10" fill="#faefe7" stroke="#dfa88f" stroke-width="1.5"/>
+  <text x="205" y="366" text-anchor="middle" font-size="15" font-weight="600" fill="#6e2a17">Правка промпта (с моделью)</text>
+  <text x="205" y="388" text-anchor="middle" font-size="12.5" fill="#a63f24">гипотеза правки - кандидат,</text>
+  <text x="205" y="404" text-anchor="middle" font-size="12.5" fill="#a63f24">перепрогон её отбракует или оставит</text>
 
   <!-- правка -> кандидат (перепрогон) -->
-  <path d="M70,360 Q30,360 30,110 Q30,78 68,78" fill="none" stroke="#534ab7" stroke-width="2" marker-end="url(#a)"/>
-  <text x="22" y="235" text-anchor="middle" font-size="12" font-weight="600" fill="#534ab7" transform="rotate(-90 22 235)">перепрогон - круг за кругом</text>
+  <path d="M70,360 Q30,360 30,110 Q30,78 68,78" fill="none" stroke="#a63f24" stroke-width="2" marker-end="url(#a)"/>
+  <text x="22" y="235" text-anchor="middle" font-size="12" font-weight="600" fill="#a63f24" transform="rotate(-90 22 235)">перепрогон - круг за кругом</text>
 
   <!-- вердикт -> промоут (PASS) -->
   <path d="M570,258 Q700,258 700,332" fill="none" stroke="#639922" stroke-width="2" marker-end="url(#ag)"/>
@@ -64,6 +64,6 @@
   <text x="700" y="404" text-anchor="middle" font-size="12.5" fill="#0f6e56">стабильно, не «в основном»</text>
 
   <!-- подписи внизу -->
-  <text x="450" y="470" text-anchor="middle" font-size="13" fill="#5a5a66">Интроспекция предлагает правку - тест отбраковывает. Верить можно прогону, не догадке.</text>
-  <text x="450" y="492" text-anchor="middle" font-size="12.5" fill="#88888f">У петли должен быть исход «не сошлось»: «на этой модели не тянет» - это работающая петля, а не сломанная.</text>
+  <text x="450" y="470" text-anchor="middle" font-size="13" fill="#5d554a">Интроспекция предлагает правку - тест отбраковывает. Верить можно прогону, не догадке.</text>
+  <text x="450" y="492" text-anchor="middle" font-size="12.5" fill="#8a8073">У петли должен быть исход «не сошлось»: «на этой модели не тянет» - это работающая петля, а не сломанная.</text>
 </svg>

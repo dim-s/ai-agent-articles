@@ -1,18 +1,30 @@
 {{ define "main" }}
 <section class="list-head">
-  <h1>{{ .Title }}</h1>
+  <p class="eyebrow">{{ i18n "site_kicker" }}</p>
+  {{/* у корня таксономии Hugo берёт заголовком имя папки — на русском сайте это «Tags».
+      Та же грабля, что раньше давала «Articles» вместо «Статьи». */}}
+  <h1>{{ if eq .Kind "taxonomy" }}{{ i18n "tags_title" }}{{ else }}{{ .Title }}{{ end }}</h1>
   {{ with .Content }}<div class="intro-body">{{ . }}</div>{{ end }}
 </section>
 
+{{/* Один шаблон обслуживает три вида страниц, и у них РАЗНЫЕ элементы списка.
+     У корня таксономии (/tags/) .Pages — это термины, а не статьи: без ветки они уезжали
+     в партиал записи и печатались как статьи с «0 мин чтения» и капитализированным слагом. */}}
+{{ if eq .Kind "taxonomy" }}
+<ul class="term-list">
+  {{ range .Pages }}
+  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="term-list__count">{{ len .Pages }}</span></li>
+  {{ else }}
+  <li>{{ partial "empty.html" . }}</li>
+  {{ end }}
+</ul>
+{{ else }}
 <section class="article-list">
   {{ range .Pages.ByDate.Reverse }}
-  <article class="card">
-    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-    <p class="meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time> · {{ .ReadingTime }}&nbsp;{{ i18n "reading_time" }}</p>
-    {{ with .Summary }}<p class="summary">{{ . }}</p>{{ end }}
-  </article>
+    {{ partial "article-entry.html" . }}
   {{ else }}
-  <p class="empty">Пока пусто.</p>
+    {{ partial "empty.html" . }}
   {{ end }}
 </section>
+{{ end }}
 {{ end }}

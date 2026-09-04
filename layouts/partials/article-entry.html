@@ -1,0 +1,13 @@
+{{/* Одна строка реестра статей. Используется и на главной, и в разделе — макет один.
+     Вся строка кликабельна, но ДОСТУПНОЕ ИМЯ ссылки — только заголовок: иначе скринридер
+     зачитывает заголовок + дату + хронометраж + весь конспект (замерено 543 знака на запись),
+     и три соседние ссылки становятся неразличимы на слух. */}}
+<a class="entry" href="{{ .RelPermalink }}" aria-label="{{ .Title }}">
+  <h2 class="entry__title">{{ .Title }}</h2>
+  <p class="entry__meta" aria-hidden="true">
+    {{ if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
+    <span class="dot">·</span>{{ end }}{{ .ReadingTime }}&nbsp;{{ i18n "reading_time" }}
+    {{ with .Params.changelog }}<span class="dot">·</span><span class="entry__rev">{{ (index (sort . "date" "desc") 0).label }}</span>{{ end }}
+  </p>
+  {{ with .Summary }}<p class="entry__summary" aria-hidden="true">{{ . }}</p>{{ end }}
+</a>

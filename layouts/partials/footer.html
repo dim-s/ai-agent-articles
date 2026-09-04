@@ -1,6 +1,11 @@
 <footer class="site-footer">
-  <div class="container">
-    <p class="foot-author">{{ i18n "author_label" }}: <strong>{{ .Site.Params.author }}</strong> ({{ .Site.Params.authorLatin }})</p>
+  <div class="container foot-inner">
+    <p class="foot-author">{{ i18n "author_label" }}: <strong>{{ .Site.Params.author }}</strong> <span class="eyebrow">{{ .Site.Params.authorLatin }}</span></p>
+    <p class="foot-links">
+      <a href="{{ "index.xml" | relLangURL }}">{{ i18n "rss_label" }}</a>
+      {{ with .Site.Params.github }}<a href="{{ . }}" rel="me noopener" target="_blank">GitHub</a>{{ end }}
+      {{ with .Site.Params.email }}<a href="mailto:{{ . }}">{{ . }}</a>{{ end }}
+    </p>
     <p class="foot-license">© {{ now.Year }}. {{ i18n "license_notice" (dict "License" .Site.Params.license) }}
       <a href="{{ .Site.Params.licenseUrl }}" rel="license">{{ .Site.Params.license }}</a>.</p>
   </div>

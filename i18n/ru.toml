@@ -37,3 +37,69 @@ other = "что изменилось"
 
 [changelog_close]
 other = "Закрыть"
+
+[site_kicker]
+other = "Из практики"
+
+[home_h1_before]
+other = "Статьи об "
+
+[home_h1_accent]
+other = "ИИ-агентах"
+
+[theme_toggle]
+other = "Переключить тему"
+
+[about_author]
+other = "Об авторе"
+
+[empty_list]
+other = "Пока пусто — первые статьи скоро."
+
+[nf_title]
+other = "Страницы нет"
+
+[nf_text]
+other = "Ссылка ведёт в пустоту: страницу переименовали или её никогда не было."
+
+[empty_label]
+other = "Пусто"
+
+[image_view]
+other = "Просмотр изображения"
+
+[toc_sections]
+other = "разделов"
+
+[rss_label]
+other = "RSS"
+
+[skip_to_content]
+other = "К тексту"
+
+[bio_more]
+other = "Подробнее об авторе"
+
+[table_region]
+other = "Таблица, прокручивается по горизонтали"
+
+[rubric_articles]
+other = "Статья"
+
+[theme_system]
+other = "Тема: как в системе. Переключить на светлую"
+
+[theme_light]
+other = "Тема: светлая. Переключить на тёмную"
+
+[theme_dark]
+other = "Тема: тёмная. Вернуть системную"
+
+[image_open_full]
+other = "Открыть изображение в полном размере"
+
+[scroll_region]
+other = "Прокручивается по горизонтали"
+
+[tags_title]
+other = "Темы"

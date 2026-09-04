@@ -7,8 +7,9 @@
     {{- range (sort . "date" "desc") }}
     <div class="changelog__rev">
       <div class="changelog__rev-head">
+        {{/* дата в метке уже есть («Ревизия 2 — сентябрь 2026»), поэтому рядом — только день */}}
         <span class="changelog__rev-label">{{ .label }}</span>
-        <time class="changelog__rev-date" datetime="{{ .date }}">{{ dateFormat "02.01.2006" .date }}</time>
+        <time class="changelog__rev-date" datetime="{{ .date }}">{{ dateFormat "02.01" .date }}</time>
       </div>
       {{- with .summary }}<p class="changelog__rev-summary">{{ . | markdownify }}</p>{{ end }}
       {{- with .items }}
@@ -26,7 +27,7 @@
     <h2 id="changelog-dialog-title">{{ i18n "changelog_title" }}</h2>
     <button type="button" class="changelog-dialog__close" data-changelog-close aria-label="{{ i18n "changelog_close" }}">&times;</button>
   </div>
-  <div class="changelog-dialog__body"></div>
+  <div class="changelog-dialog__body" tabindex="0" role="region" aria-label="{{ i18n "changelog_title" }}"></div>
 </dialog>
 <script>
 (function () {
@@ -34,6 +35,8 @@
   var src = document.querySelector('.changelog .changelog__body');
   if (!dlg || !src || typeof dlg.showModal !== 'function') return;
   dlg.querySelector('.changelog-dialog__body').innerHTML = src.innerHTML;
+  /* поп-ап работает — секция-фолбэк внизу больше не нужна, иначе лог виден дважды */
+  document.documentElement.classList.add('has-changelog-dialog');
   if (location.hash === '#article-changelog') dlg.showModal();
   document.addEventListener('click', function (e) {
     if (e.target.closest('[data-changelog-open]')) { e.preventDefault(); dlg.showModal(); return; }

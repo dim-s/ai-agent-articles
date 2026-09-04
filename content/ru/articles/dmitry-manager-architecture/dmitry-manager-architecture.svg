@@ -11,18 +11,18 @@
 <defs>
 <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#888780"/></marker>
 <marker id="ahs" markerWidth="9" markerHeight="9" refX="1" refY="4" orient="auto"><path d="M8,0 L0,4 L8,8 z" fill="#888780"/></marker>
-<marker id="ahp" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#7F77DD"/></marker>
-<marker id="ahv" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#534AB7"/></marker>
+<marker id="ahp" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c2633f"/></marker>
+<marker id="ahv" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#a63f24"/></marker>
 <marker id="ahd" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#E0942A"/></marker>
 </defs>
 
 <rect x="8" y="8" width="1044" height="574" rx="16" fill="#FDFCF9" stroke="#E5E3DB" stroke-width="1"/>
 
 <!-- скилл-оркестратор: объемлющая рамка (владелец — над ней) -->
-<rect x="22" y="164" width="1026" height="398" rx="12" fill="none" stroke="#AFA9EC" stroke-width="1.3" stroke-dasharray="5 5"/>
-<rect x="28" y="146" width="376" height="40" rx="7" fill="#EEEDFE" stroke="#AFA9EC" stroke-width="1.2"/>
-<text class="t" x="40" y="165" fill="#26215C">auto-dmitry-manager · сессионный режим</text>
-<text class="ts" x="40" y="180" fill="#534AB7">оркестратор: полки · batch · переключатель · креатив-ось</text>
+<rect x="22" y="164" width="1026" height="398" rx="12" fill="none" stroke="#dfa88f" stroke-width="1.3" stroke-dasharray="5 5"/>
+<rect x="28" y="146" width="376" height="40" rx="7" fill="#faefe7" stroke="#dfa88f" stroke-width="1.2"/>
+<text class="t" x="40" y="165" fill="#6e2a17">auto-dmitry-manager · сессионный режим</text>
+<text class="ts" x="40" y="180" fill="#a63f24">оркестратор: полки · batch · переключатель · креатив-ось</text>
 
 <text class="cap" x="36" y="42">Маршрутизация развилки: конвергентные слои + дивергентная ветка</text>
 <text class="subcap" x="36" y="62">всё внутри сессионного режима auto-dmitry-manager (оркестратор); менеджер сводит к «чисто» (конвергенция), мечтатель раскладывает поле (дивергенция)</text>
@@ -35,20 +35,20 @@
 <line x1="430" y1="136" x2="430" y2="190" stroke="#888780" stroke-width="1.5" marker-end="url(#ah)"/>
 <text class="lab" x="440" y="168">задача · направление</text>
 
-<polyline points="800,360 826,360 826,109 534,109" fill="none" stroke="#7F77DD" stroke-width="1.6" marker-end="url(#ahp)"/>
-<text class="lab" x="818" y="200" text-anchor="end" fill="#534AB7">только незаменимое</text>
+<polyline points="800,360 826,360 826,109 534,109" fill="none" stroke="#c2633f" stroke-width="1.6" marker-end="url(#ahp)"/>
+<text class="lab" x="818" y="200" text-anchor="end" fill="#a63f24">только незаменимое</text>
 
 <line x1="345" y1="250" x2="188" y2="322" stroke="#888780" stroke-width="1.5" marker-start="url(#ahs)" marker-end="url(#ah)"/>
 <line x1="430" y1="250" x2="430" y2="322" stroke="#888780" stroke-width="1.5" marker-start="url(#ahs)" marker-end="url(#ah)"/>
 
 <line x1="518" y1="250" x2="643" y2="320" stroke="#888780" stroke-width="1.5" marker-end="url(#ah)"/>
-<path d="M702,322 Q748,246 553,233" fill="none" stroke="#534AB7" stroke-width="1.6" marker-end="url(#ahv)"/>
+<path d="M702,322 Q748,246 553,233" fill="none" stroke="#a63f24" stroke-width="1.6" marker-end="url(#ahv)"/>
 
 <text class="lab" x="36" y="298">различитель масштаба</text>
 <text class="lab" x="92" y="316">мелочь — сам</text>
 <text class="lab" x="440" y="300">тактика</text>
 <text class="lab" x="500" y="306" fill="#5F5E5A">план · готово</text>
-<text class="lab" x="636" y="244" text-anchor="middle" fill="#534AB7">доделать → вызови снова</text>
+<text class="lab" x="636" y="244" text-anchor="middle" fill="#a63f24">доделать → вызови снова</text>
 
 <line x1="697" y1="398" x2="694" y2="470" stroke="#888780" stroke-width="1.5" marker-end="url(#ah)"/>
 <text class="lab" x="706" y="432">указывает запустить</text>
@@ -76,10 +76,10 @@
 <text class="t" x="430" y="354" text-anchor="middle" fill="#04342C">dmitry-engine</text>
 <text class="ts" x="430" y="372" text-anchor="middle" fill="#0F6E56">выбор + причина · ~1100 ток.</text>
 
-<rect x="590" y="324" width="210" height="72" rx="10" fill="#EEEDFE" stroke="#AFA9EC" stroke-width="1.2"/>
-<text class="t" x="695" y="349" text-anchor="middle" fill="#26215C">dmitry-manager</text>
-<text class="ts" x="695" y="367" text-anchor="middle" fill="#534AB7">10 линз · гейт · память</text>
-<text class="ts" x="695" y="384" text-anchor="middle" fill="#534AB7">советует — не делает</text>
+<rect x="590" y="324" width="210" height="72" rx="10" fill="#faefe7" stroke="#dfa88f" stroke-width="1.2"/>
+<text class="t" x="695" y="349" text-anchor="middle" fill="#6e2a17">dmitry-manager</text>
+<text class="ts" x="695" y="367" text-anchor="middle" fill="#a63f24">10 линз · гейт · память</text>
+<text class="ts" x="695" y="384" text-anchor="middle" fill="#a63f24">советует — не делает</text>
 
 <rect x="560" y="474" width="276" height="62" rx="10" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="1.2"/>
 <text class="t" x="698" y="500" text-anchor="middle" fill="#2C2C2A">штат субагентов · скиллов</text>
@@ -103,6 +103,6 @@
 <text class="ts" x="78" y="504" fill="#5F5E5A">чисто — действуй, отчитайся по сути</text>
 <circle cx="64" cy="524" r="5" fill="#888780"/>
 <text class="ts" x="78" y="528" fill="#5F5E5A">доделать · запустить — цикл до «чисто»</text>
-<circle cx="64" cy="548" r="5" fill="#7F77DD"/>
+<circle cx="64" cy="548" r="5" fill="#c2633f"/>
 <text class="ts" x="78" y="552" fill="#5F5E5A">на владельца — только необратимое и вкусовое</text>
 </svg>

@@ -1,34 +1,45 @@
 {{ define "main" }}
 <article class="post">
   <header class="post-header">
+    {{/* Надзаголовок — РУБРИКА, и только она. Слаг первого тега («ai-agents») одинаков у всех
+        трёх статей и на русском сайте не несёт информации; на странице вне раздела он
+        просто дублировал бы заголовок под собой, поэтому там его нет. */}}
+    {{ if eq .Section "articles" }}<p class="eyebrow">{{ i18n "rubric_articles" }}</p>{{ end }}
     <h1>{{ .Title }}</h1>
     {{ if not .Date.IsZero }}
     <p class="meta">
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
-      · {{ .ReadingTime }}&nbsp;{{ i18n "reading_time" }}
-      · {{ i18n "author_label" }}: {{ .Site.Params.author }}
+      <span class="dot" aria-hidden="true">·</span>{{ .ReadingTime }}&nbsp;{{ i18n "reading_time" }}
+      <span class="dot" aria-hidden="true">·</span>{{ .Site.Params.author }}
     </p>
     {{ end }}
     {{ partial "changelog-chip.html" . }}
   </header>
 
-  {{ if gt (len .TableOfContents) 60 }}
-  <nav class="toc">
-    <div class="toc-title">{{ i18n "toc_title" }}</div>
-    {{ .TableOfContents }}
-  </nav>
-  {{ end }}
+  <div class="post-layout">
+    {{ if and (gt .WordCount 1200) (gt (len .TableOfContents) 60) }}
+    {{/* На узком экране содержание свёрнуто: раскрытый список из 11 пунктов съедает целый
+         экран между заголовком и первой строкой текста. На широком CSS раскрывает его
+         обратно и делает липким столбцом — без JS, чтобы не сломалось при его отсутствии. */}}
+    <details class="toc" id="toc">
+      <summary class="toc-title eyebrow">{{ i18n "toc_title" }}</summary>
+      <nav aria-label="{{ i18n "toc_title" }}">{{ .TableOfContents }}</nav>
+    </details>
+    {{ end }}
 
-  <div class="post-content">
-    {{ .Content }}
+    <div class="post-body">
+      <div class="post-content">
+        {{ .Content }}
+      </div>
+
+      {{ partial "changelog-log.html" . }}
+
+      <footer class="post-footer">
+        <p class="license">{{ i18n "license_notice" (dict "License" .Site.Params.license) }}
+          <a href="{{ .Site.Params.licenseUrl }}" rel="license">{{ .Site.Params.license }}</a></p>
+        <a class="back" href="{{ "articles/" | relLangURL }}">{{ i18n "back_to_articles" }}</a>
+      </footer>
+    </div>
   </div>
-
-  {{ partial "changelog-log.html" . }}
-
-  <footer class="post-footer">
-    <p class="license">{{ i18n "license_notice" (dict "License" .Site.Params.license) }}
-      <a href="{{ .Site.Params.licenseUrl }}" rel="license">{{ .Site.Params.license }}</a></p>
-    <a class="back" href="{{ "articles/" | relLangURL }}">{{ i18n "back_to_articles" }}</a>
-  </footer>
 </article>
 {{ end }}

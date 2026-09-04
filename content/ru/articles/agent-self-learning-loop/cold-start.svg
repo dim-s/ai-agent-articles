@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" font-family="'IBM Plex Sans', system-ui, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" font-family="'Golos Text', 'IBM Plex Sans', system-ui, sans-serif">
   <defs>
     <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L8,3 L0,6 Z" fill="#888780"/>
     </marker>
     <marker id="ap" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L8,3 L0,6 Z" fill="#534ab7"/>
+      <path d="M0,0 L8,3 L0,6 Z" fill="#a63f24"/>
     </marker>
   </defs>
 
-  <rect width="900" height="430" fill="#ffffff"/>
+  <rect width="900" height="430" fill="#fffcf6"/>
   <text x="450" y="32" text-anchor="middle" font-size="16" font-weight="600" fill="#2c2c2a">Холодный старт: живая база уроков из истории работы</text>
   <text x="450" y="52" text-anchor="middle" font-size="12.5" fill="#7a786f">не ждать месяцами накопления - вычитать уроки из следов реальной работы</text>
 
@@ -20,35 +20,35 @@
 
   <!-- СИГНАЛЫ (анализатор) -->
   <rect x="512" y="94" width="330" height="82" rx="10" fill="#f6f5fc" stroke="#cdc9ec" stroke-width="1.3"/>
-  <text x="677" y="120" text-anchor="middle" font-size="15" font-weight="700" fill="#26215c">Провал-сигналы, по механизму</text>
-  <text x="677" y="142" text-anchor="middle" font-size="12" fill="#5a5a66">коррекции + повторы одного механизма;</text>
-  <text x="677" y="158" text-anchor="middle" font-size="12" fill="#5a5a66">отсеять шум; счётчик = будущее evidence</text>
-  <text x="677" y="174" text-anchor="middle" font-size="11" font-style="italic" fill="#7f77dd">ведёт АНАЛИЗАТОР</text>
+  <text x="677" y="120" text-anchor="middle" font-size="15" font-weight="700" fill="#6e2a17">Провал-сигналы, по механизму</text>
+  <text x="677" y="142" text-anchor="middle" font-size="12" fill="#5d554a">коррекции + повторы одного механизма;</text>
+  <text x="677" y="158" text-anchor="middle" font-size="12" fill="#5d554a">отсеять шум; счётчик = будущее evidence</text>
+  <text x="677" y="174" text-anchor="middle" font-size="11" font-style="italic" fill="#c2633f">ведёт АНАЛИЗАТОР</text>
 
   <!-- ГЕЙТ (судья) -->
-  <rect x="512" y="272" width="330" height="82" rx="10" fill="#534ab7"/>
-  <text x="677" y="304" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">Гейт входа - судья, пачкой</text>
-  <text x="677" y="326" text-anchor="middle" font-size="12" fill="#e8e6f8">механизм? мишень? исполнимое лекарство?</text>
+  <rect x="512" y="272" width="330" height="82" rx="10" fill="#a63f24"/>
+  <text x="677" y="304" text-anchor="middle" font-size="15" font-weight="700" fill="#fffcf6">Гейт входа - судья, пачкой</text>
+  <text x="677" y="326" text-anchor="middle" font-size="12" fill="#f7e7dc">механизм? мишень? исполнимое лекарство?</text>
   <text x="677" y="344" text-anchor="middle" font-size="11" font-style="italic" fill="#c9c5f2">судит lessons-curator</text>
 
   <!-- КАНДИДАТЫ -->
   <rect x="58" y="272" width="330" height="82" rx="10" fill="#fbf7ec" stroke="#e0c987" stroke-width="1.3"/>
   <text x="223" y="304" text-anchor="middle" font-size="15" font-weight="700" fill="#8a6d1f">Кандидаты в LESSONS/</text>
-  <text x="223" y="326" text-anchor="middle" font-size="12" fill="#5a5a66">рождаются кандидатами; + сразу «сон»,</text>
-  <text x="223" y="342" text-anchor="middle" font-size="12" fill="#5a5a66">чтобы база родилась чистой, не свалкой</text>
+  <text x="223" y="326" text-anchor="middle" font-size="12" fill="#5d554a">рождаются кандидатами; + сразу «сон»,</text>
+  <text x="223" y="342" text-anchor="middle" font-size="12" fill="#5d554a">чтобы база родилась чистой, не свалкой</text>
 
   <!-- стрелки-змейка -->
   <line x1="388" y1="135" x2="510" y2="135" stroke="#888780" stroke-width="1.6" marker-end="url(#a)"/>
   <text x="449" y="127" text-anchor="middle" font-size="11" fill="#7a786f">читает</text>
 
-  <line x1="677" y1="176" x2="677" y2="270" stroke="#534ab7" stroke-width="2" marker-end="url(#ap)"/>
+  <line x1="677" y1="176" x2="677" y2="270" stroke="#a63f24" stroke-width="2" marker-end="url(#ap)"/>
   <text x="690" y="214" font-size="12.5" font-weight="700" fill="#b5462e">СБОР ≠ СУЖДЕНИЕ</text>
-  <text x="690" y="231" font-size="11.5" fill="#5a5a66">разные агенты -</text>
-  <text x="690" y="246" font-size="11.5" fill="#5a5a66">мешать нельзя</text>
+  <text x="690" y="231" font-size="11.5" fill="#5d554a">разные агенты -</text>
+  <text x="690" y="246" font-size="11.5" fill="#5d554a">мешать нельзя</text>
 
   <line x1="510" y1="313" x2="390" y2="313" stroke="#888780" stroke-width="1.6" marker-end="url(#a)"/>
   <text x="449" y="305" text-anchor="middle" font-size="11" fill="#7a786f">судит</text>
 
-  <text x="450" y="392" text-anchor="middle" font-size="13" fill="#5a5a66">Сбор ведёт анализатор, судит - lessons-curator. Смешать в одного - вернуть bias заинтересованной стороны.</text>
-  <text x="450" y="414" text-anchor="middle" font-size="12.5" fill="#88888f">Тот же ход, что и со сбором линз владельца: не спрашивать «на чём обжигался», а вычитать из следов работы.</text>
+  <text x="450" y="392" text-anchor="middle" font-size="13" fill="#5d554a">Сбор ведёт анализатор, судит - lessons-curator. Смешать в одного - вернуть bias заинтересованной стороны.</text>
+  <text x="450" y="414" text-anchor="middle" font-size="12.5" fill="#8a8073">Тот же ход, что и со сбором линз владельца: не спрашивать «на чём обжигался», а вычитать из следов работы.</text>
 </svg>

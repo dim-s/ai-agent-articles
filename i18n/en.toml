@@ -37,3 +37,69 @@ other = "what changed"
 
 [changelog_close]
 other = "Close"
+
+[site_kicker]
+other = "From practice"
+
+[home_h1_before]
+other = "Articles on "
+
+[home_h1_accent]
+other = "AI agents"
+
+[theme_toggle]
+other = "Toggle theme"
+
+[about_author]
+other = "About the author"
+
+[empty_list]
+other = "Nothing here yet — first articles are coming."
+
+[nf_title]
+other = "No such page"
+
+[nf_text]
+other = "This link leads nowhere: the page was renamed, or it never existed."
+
+[empty_label]
+other = "Empty"
+
+[image_view]
+other = "Image view"
+
+[toc_sections]
+other = "sections"
+
+[rss_label]
+other = "RSS"
+
+[skip_to_content]
+other = "Skip to content"
+
+[bio_more]
+other = "More about the author"
+
+[table_region]
+other = "Table, scrolls horizontally"
+
+[rubric_articles]
+other = "Article"
+
+[theme_system]
+other = "Theme: follows system. Switch to light"
+
+[theme_light]
+other = "Theme: light. Switch to dark"
+
+[theme_dark]
+other = "Theme: dark. Back to system"
+
+[image_open_full]
+other = "Open image at full size"
+
+[scroll_region]
+other = "Scrolls horizontally"
+
+[tags_title]
+other = "Topics"

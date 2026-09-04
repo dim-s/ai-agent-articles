@@ -1,9 +1,21 @@
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
-    <nav class="site-nav">
-      <a href="{{ "articles/" | relLangURL }}">{{ i18n "articles" }}</a>
-      <a href="{{ "about/" | relLangURL }}">{{ i18n "about" }}</a>
+    <a class="brand" href="{{ .Site.Home.RelPermalink }}">
+      <span class="brand__mark" aria-hidden="true">ДЗ</span>
+      <span class="brand__text">{{ .Site.Title }}</span>
+    </a>
+    <nav class="site-nav" aria-label="{{ i18n "articles" }}">
+      {{ $articles := "articles/" | relLangURL }}
+      {{ $about := "about/" | relLangURL }}
+      <a href="{{ $articles }}"{{ if hasPrefix .RelPermalink $articles }} aria-current="page"{{ end }}>{{ i18n "articles" }}</a>
+      <a href="{{ $about }}"{{ if eq .RelPermalink $about }} aria-current="page"{{ end }}>{{ i18n "about" }}</a>
+      <button class="theme-toggle" type="button" id="theme-toggle"
+              aria-label="{{ i18n "theme_system" }}" title="{{ i18n "theme_system" }}" aria-pressed="false"
+              data-labels='{"system":"{{ i18n "theme_system" }}","light":"{{ i18n "theme_light" }}","dark":"{{ i18n "theme_dark" }}"}'>
+        <span class="theme-toggle__icon theme-toggle__auto" aria-hidden="true">◐</span>
+        <span class="theme-toggle__icon theme-toggle__light" aria-hidden="true">○</span>
+        <span class="theme-toggle__icon theme-toggle__dark" aria-hidden="true">●</span>
+      </button>
     </nav>
   </div>
 </header>
