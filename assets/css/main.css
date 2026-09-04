@@ -216,6 +216,6 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* — защита от горизонтального переполнения: широкие таблицы и длинные токены — */
 .post-content .table-wrap { overflow-x: auto; margin: 24px 0; -webkit-overflow-scrolling: touch; }
-.post-content .table-wrap > table { margin: 0; min-width: 34rem; }
+.post-content .table-wrap > table { margin: 0; }
 .post-content code { overflow-wrap: anywhere; }
 .toc code { overflow-wrap: anywhere; }
