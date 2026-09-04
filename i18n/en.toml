@@ -28,3 +28,12 @@ other = "← all articles"
 
 [toc_title]
 other = "Contents"
+
+[changelog_title]
+other = "What changed in this article"
+
+[changelog_cta]
+other = "what changed"
+
+[changelog_close]
+other = "Close"

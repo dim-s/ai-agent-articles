@@ -1,0 +1,8 @@
+{{- /* Плашка ревизии в шапке статьи. Ведёт якорем к логу внизу; JS ниже перехватывает и открывает поп-ап. */ -}}
+{{- with .Params.changelog -}}
+{{- $latest := index (sort . "date" "desc") 0 -}}
+<a class="revision-chip" href="#article-changelog" data-changelog-open>
+  <span class="revision-chip__label">{{ $latest.label }}</span>
+  <span class="revision-chip__cta">{{ i18n "changelog_cta" }}</span>
+</a>
+{{- end -}}

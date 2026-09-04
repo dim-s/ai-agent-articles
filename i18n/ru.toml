@@ -28,3 +28,12 @@ other = "← ко всем статьям"
 
 [toc_title]
 other = "Содержание"
+
+[changelog_title]
+other = "Что изменилось в статье"
+
+[changelog_cta]
+other = "что изменилось"
+
+[changelog_close]
+other = "Закрыть"

@@ -1,0 +1,45 @@
+{{- /* Лог изменений статьи. Без JS — обычная секция внизу, доступная по якорю из шапки.
+       С JS — тот же список показывается поп-апом, страница не прокручивается. */ -}}
+{{- with .Params.changelog -}}
+<section class="changelog" id="article-changelog">
+  <h2 class="changelog__title">{{ i18n "changelog_title" }}</h2>
+  <div class="changelog__body">
+    {{- range (sort . "date" "desc") }}
+    <div class="changelog__rev">
+      <div class="changelog__rev-head">
+        <span class="changelog__rev-label">{{ .label }}</span>
+        <time class="changelog__rev-date" datetime="{{ .date }}">{{ dateFormat "02.01.2006" .date }}</time>
+      </div>
+      {{- with .summary }}<p class="changelog__rev-summary">{{ . | markdownify }}</p>{{ end }}
+      {{- with .items }}
+      <ul class="changelog__items">
+        {{- range . }}<li>{{ . | markdownify }}</li>{{ end }}
+      </ul>
+      {{- end }}
+    </div>
+    {{- end }}
+  </div>
+</section>
+
+<dialog class="changelog-dialog" id="changelog-dialog" aria-labelledby="changelog-dialog-title">
+  <div class="changelog-dialog__head">
+    <h2 id="changelog-dialog-title">{{ i18n "changelog_title" }}</h2>
+    <button type="button" class="changelog-dialog__close" data-changelog-close aria-label="{{ i18n "changelog_close" }}">&times;</button>
+  </div>
+  <div class="changelog-dialog__body"></div>
+</dialog>
+<script>
+(function () {
+  var dlg = document.getElementById('changelog-dialog');
+  var src = document.querySelector('.changelog .changelog__body');
+  if (!dlg || !src || typeof dlg.showModal !== 'function') return;
+  dlg.querySelector('.changelog-dialog__body').innerHTML = src.innerHTML;
+  if (location.hash === '#article-changelog') dlg.showModal();
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('[data-changelog-open]')) { e.preventDefault(); dlg.showModal(); return; }
+    if (e.target.closest('[data-changelog-close]')) { dlg.close(); return; }
+    if (e.target === dlg) dlg.close();
+  });
+})();
+</script>
+{{- end -}}
