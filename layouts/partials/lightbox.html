@@ -1,7 +1,7 @@
 {{- /* Лайтбокс на нативном <dialog>: фокус-трап, Escape и возврат фокуса — от платформы.
        Без JS ссылка просто открывает картинку отдельной страницей (прогрессивное улучшение). */ -}}
 <dialog class="lightbox" id="lightbox" aria-label="{{ i18n "image_view" }}">
-  <button type="button" class="lightbox__close" autofocus data-lightbox-close aria-label="{{ i18n "changelog_close" }}">&times;</button>
+  <button type="button" class="lightbox__close" autofocus data-lightbox-close aria-label="{{ i18n "lightbox_close" }}">&times;</button>
   <img alt="" id="lightbox-img">
 </dialog>
 <script>

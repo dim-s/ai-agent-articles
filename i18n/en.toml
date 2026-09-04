@@ -103,3 +103,6 @@ other = "Scrolls horizontally"
 
 [tags_title]
 other = "Topics"
+
+[lightbox_close]
+other = "Close image"

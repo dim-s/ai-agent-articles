@@ -103,3 +103,6 @@ other = "Прокручивается по горизонтали"
 
 [tags_title]
 other = "Темы"
+
+[lightbox_close]
+other = "Закрыть изображение"
